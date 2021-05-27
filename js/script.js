@@ -11,15 +11,17 @@ var app = new Vue(
             listaMail: []
         },
         created: function() {
-            axios
+            for (var i = 0; i < 10; i++){
+                axios
                 .get("https://flynn.boolean.careers/exercises/api/random/mail")
                 .then (
                     (result) => {
                         console.log(result.data.response);
                         this.listaMail.push(result.data.response);
-                        console.log(this.listaMail);
+                        //console.log(this.listaMail);
                     }
                 );
+            }
         }
     }
 );
